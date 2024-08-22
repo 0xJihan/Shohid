@@ -6,6 +6,6 @@ import retrofit2.http.GET
 interface RetrofitServices {
 
     @GET("apps/Shohid_Information.json")
-    suspend fun getAllShoid() : Response<ShohidList>
+    suspend fun getAllShoid(): Response<ShohidList>
 
 }

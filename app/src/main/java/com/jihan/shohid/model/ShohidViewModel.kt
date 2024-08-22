@@ -1,6 +1,6 @@
 package com.jihan.shohid.model
 
-import Shohid
+import com.jihan.shohid.room.Shohid
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -1,6 +1,7 @@
+package com.jihan.shohid.room
+
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.io.Serializable
 
 @Entity(tableName = "martyr_information")
 data class Shohid(
@@ -23,4 +24,4 @@ data class Shohid(
     val occupation: String,
     val personal_life: String,
     val reason: String
-) : Serializable
+)

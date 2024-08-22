@@ -6,14 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.jihan.shohid.MyApplication
 import com.jihan.shohid.R
 import com.jihan.shohid.adapter.MyAdapter
 import com.jihan.shohid.databinding.ActivityMainBinding
-import com.jihan.shohid.model.ShohidRepository
 import com.jihan.shohid.model.ShohidViewModel
 import com.jihan.shohid.model.ViewModelFactory
-import com.jihan.shohid.retrofit.RetrofitApi
-import com.jihan.shohid.retrofit.RetrofitServices
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,9 +26,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         _binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        //retrofit
-        val retrofitService = RetrofitApi.getInstance().create(RetrofitServices::class.java)
-        val repository = ShohidRepository(retrofitService)
+        val repository = (application as MyApplication).repository
 
         //viewModel
         viewModel =
