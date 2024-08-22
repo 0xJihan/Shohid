@@ -1,5 +1,6 @@
 package com.jihan.shohid.adapter
 
+import Shohid
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,6 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.jihan.shohid.R
 import com.jihan.shohid.activity.DetailActivity
-import com.jihan.shohid.retrofit.Shohid
 
 class MyAdapter(private val shohidList: List<Shohid>) :
     RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
@@ -22,14 +22,14 @@ class MyAdapter(private val shohidList: List<Shohid>) :
         val tvId: TextView = itemview.findViewById(R.id.tvId)
 
         fun bindData(shohid: Shohid) {
-            tvId.text = shohid.id
+            tvId.text = shohid.id.toString()
             tvName.text = shohid.name
             tvDesc.text = "${shohid.occupation}\n${shohid.description}"
             tvDeathTime.text = shohid.date_of_death
             itemView.rootView.setOnClickListener {
                 val intent = Intent(itemView.context, DetailActivity::class.java)
-                intent.putExtra("shohid",shohid)
-                startActivity(itemView.context,intent,null)
+                intent.putExtra("SHOHID_EXTRA", shohid)
+                startActivity(itemView.context, intent, null)
             }
         }
 

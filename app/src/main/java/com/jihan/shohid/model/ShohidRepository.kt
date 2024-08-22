@@ -1,9 +1,9 @@
 package com.jihan.shohid.model
 
+import Shohid
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.jihan.shohid.retrofit.RetrofitServices
-import com.jihan.shohid.retrofit.Shohid
 
 class ShohidRepository(private val retrofitServices: RetrofitServices) {
 

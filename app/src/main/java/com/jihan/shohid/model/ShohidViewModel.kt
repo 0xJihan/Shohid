@@ -1,9 +1,9 @@
 package com.jihan.shohid.model
 
+import Shohid
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jihan.shohid.retrofit.Shohid
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -18,9 +18,7 @@ class ShohidViewModel(private val repository: ShohidRepository) : ViewModel() {
     }
 
 
-
-
-    fun refreshData(){
+    fun refreshData() {
         viewModelScope.launch(Dispatchers.IO) {
             repository.getShohidList()
         }

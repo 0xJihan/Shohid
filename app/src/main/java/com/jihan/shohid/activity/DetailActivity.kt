@@ -1,54 +1,47 @@
 package com.jihan.shohid.activity
 
+import Shohid
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.jihan.shohid.R
 import com.jihan.shohid.databinding.ActivityDetailBinding
-import com.jihan.shohid.retrofit.Shohid
 
 class DetailActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityDetailBinding
+    private lateinit var binding: ActivityDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_detail)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_detail)
 
         val intent = intent
-        val shohid = intent.getParcelableExtra<Shohid>("shohid")
+        val shohid = intent.getSerializableExtra("SHOHID_EXTRA") as? Shohid
 
 
         if (shohid != null) {
-            if (shohid.age.isNullOrEmpty()){
+            if (shohid.age.isNullOrEmpty()) {
                 binding.age.text = "বয়স : ----------"
-            }
-            else {
-            binding.age.text = "বয়স : ${shohid.age}"
+            } else {
+                binding.age.text = "বয়স : ${shohid.age}"
             }
 
-            if (shohid.dob ==null){
+            if (shohid.dob == null) {
                 binding.dob.text = "জন্ম তারিখ : ----------"
-            }
-            else {
+            } else {
                 binding.dob.text = "জন্ম তারিখ : ${shohid.dob}"
             }
 
-            if (shohid.birth_place.isNullOrEmpty()){
+            if (shohid.birth_place.isNullOrEmpty()) {
                 binding.birthPlace.text = "জন্মস্থান : ----------"
-            }
-            else {
+            } else {
                 binding.birthPlace.text = "জন্মস্থান : ${shohid.birth_place}"
             }
 
             binding.name.text = shohid.name
-            binding.descriptin.text = "${shohid.occupation}\n ${shohid.description}\nমৃত্যু তারিখ : ${shohid.date_of_death}"
+            binding.descriptin.text =
+                "${shohid.occupation}\n ${shohid.description}\nমৃত্যু তারিখ : ${shohid.date_of_death}"
             binding.reason.text = shohid.reason
             binding.personalLife.text = shohid.personal_life
         }
-
-
-
-
-
 
 
     }
