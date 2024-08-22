@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:layout_marginTop="@dimen/_10sdp"
+    app:cardCornerRadius="@dimen/_8sdp"
+    app:cardElevation="@dimen/_8sdp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp">
+
+
+        <ImageView
+            android:id="@+id/shohidImage"
+
+            android:layout_width="165dp"
+            android:layout_height="155dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/placeholder" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/anik_bold"
+            android:text="ফয়সাল আহমেদ শান্ত"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/shohidImage"
+            app:layout_constraintStart_toStartOf="@+id/shohidImage"
+            app:layout_constraintTop_toBottomOf="@+id/shohidImage" />
+
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/anik_semi_medium"
+            android:text="শিক্ষার্থী\nওমরগণি এম.ই.এস. কলেজ, চট্টগ্রাম"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="@+id/shohidImage"
+            app:layout_constraintStart_toStartOf="@+id/shohidImage"
+            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+        <TextView
+            android:id="@+id/tvDeathTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:fontFamily="@font/anik_semi_light"
+            android:text="১৬ জুলাই, ২০২৪"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/shohidImage"
+            app:layout_constraintStart_toStartOf="@+id/shohidImage"
+            app:layout_constraintTop_toBottomOf="@+id/tvDesc" />
+
+        <TextView
+            android:id="@+id/tvId"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:background="#FF0000"
+            android:padding="@dimen/_2sdp"
+            android:text="455"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
