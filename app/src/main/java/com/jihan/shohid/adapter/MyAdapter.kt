@@ -28,6 +28,7 @@ class MyAdapter(private val shohidList: List<Shohid>) :
             tvDeathTime.text = shohid.date_of_death
             itemView.rootView.setOnClickListener {
                 val intent = Intent(itemView.context, DetailActivity::class.java)
+                intent.putExtra("extra", shohid)
                 startActivity(itemView.context, intent, null)
             }
         }
