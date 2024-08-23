@@ -11,8 +11,9 @@ import com.jihan.shohid.R
 import com.jihan.shohid.activity.DetailActivity
 import com.jihan.shohid.room.Shohid
 
-class MyAdapter(private val shohidList: List<Shohid>) :
-    RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class MyAdapter(private var shohidList: List<Shohid>) :
+    RecyclerView.Adapter<MyAdapter.MyViewHolder>()
+{
 
     inner class MyViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
 
@@ -55,4 +56,12 @@ class MyAdapter(private val shohidList: List<Shohid>) :
         holder.bindData(shohidList[position])
 
     }
+
+
+    // for updating list
+    fun updateList(newList: List<Shohid>) {
+        this.shohidList = newList
+        notifyDataSetChanged()
+    }
+
 }

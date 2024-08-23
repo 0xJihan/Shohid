@@ -5,19 +5,16 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
-import androidx.recyclerview.widget.GridLayoutManager
 import com.jihan.shohid.MyApplication
 import com.jihan.shohid.R
 import com.jihan.shohid.adapter.MyAdapter
 import com.jihan.shohid.databinding.ActivityMainBinding
 import com.jihan.shohid.model.ShohidViewModel
 import com.jihan.shohid.model.ViewModelFactory
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.jihan.shohid.room.Shohid
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +22,8 @@ class MainActivity : AppCompatActivity() {
     private val binding get() = _binding
 
     private lateinit var viewModel: ShohidViewModel
+
+    private lateinit var adapter: MyAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             ViewModelProvider(this, ViewModelFactory(repository))[ShohidViewModel::class.java]
 
 
-
+        // refresh ui
         binding.swipeRefreshLayout.setOnRefreshListener {
 
             viewModel.refreshData()
@@ -49,27 +48,55 @@ class MainActivity : AppCompatActivity() {
 
         //observing data
         viewModel.shoidList.observe(this) {
-            binding.recyclerView.adapter = MyAdapter(viewModel.shoidList.value!!)
+            adapter = MyAdapter(viewModel.shoidList.value!!)
+            binding.recyclerView.adapter = adapter
             binding.swipeRefreshLayout.isRefreshing = false
         }
 
 
+        // implementing search view
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterList(newText)
+                return true
+            }
+        })
 
-        binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
 
-
-
-
-
-        if (NetworkUtils().isInternetConnected(this)){
+        // showing toast based on network connection
+        if (NetworkUtils().isInternetConnected(this)) {
             Toast.makeText(this, "Internet Connected", Toast.LENGTH_LONG).show()
-        }
-        else {
+        } else {
             Toast.makeText(this, "Internet Not Connected", Toast.LENGTH_LONG).show()
         }
 
 
+    }
 
+    // filtering data based on search query
+    private fun filterList(newText: String?) {
+        var list = ArrayList<Shohid>()
+        val shohidList = viewModel.shoidList.value!!
+        val query = newText!!.lowercase()
+        if (list != null) {
+            for (item in shohidList) {
+                if (item.name.lowercase().contains(query) || item.en_name.lowercase()
+                        .contains(query) || item.description.lowercase()
+                        .contains(query) || item.en_description.lowercase()
+                        .contains(query) || item.birth_place.lowercase()
+                        .contains(query) || item.en_birth_place.lowercase()
+                        .contains(query) || item.date_of_death.contains(query) || item.en_date_of_death.contains(
+                        query
+                    )
+                ) {
+                    list.add(item)
+                }
+            }
+        }
+        adapter.updateList(list)
     }
 
     override fun onDestroy() {
