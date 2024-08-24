@@ -49,7 +49,7 @@ class Home_Fragment : Fragment() {
         }
 
         //observing data
-        viewModel.shoidList.observe(this) {
+        viewModel.shoidList.observe(viewLifecycleOwner) {
             adapter = MyAdapter(viewModel.shoidList.value!!)
             binding.recyclerView.adapter = adapter
             binding.swipeRefreshLayout.isRefreshing = false
