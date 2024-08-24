@@ -12,8 +12,6 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.jihan.shohid.MyApplication
-import com.jihan.shohid.R
-import com.jihan.shohid.activity.MainActivity
 import com.jihan.shohid.adapter.MyAdapter
 import com.jihan.shohid.databinding.FragmentHomeBinding
 import com.jihan.shohid.model.ShohidViewModel
@@ -31,7 +29,7 @@ class Home_Fragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentHomeBinding.inflate(layoutInflater)
 
@@ -59,11 +57,9 @@ class Home_Fragment : Fragment() {
 
 
         // number changing animation
-        animateNumberChange(650,"এ পর্যন্ত শহীদ",binding.tvTotalShohid)
-        animateNumberChange(33000,"এ পর্যন্ত আহত",binding.tvTotalAhoto)
-        animateNumberChange(11000,"গ্রেফতার ও নিখোঁজ",binding.tvTotalNikhoj)
-
-
+        animateNumberChange(650, "এ পর্যন্ত শহীদ", binding.tvTotalShohid)
+        animateNumberChange(33000, "এ পর্যন্ত আহত", binding.tvTotalAhoto)
+        animateNumberChange(11000, "গ্রেফতার ও নিখোঁজ", binding.tvTotalNikhoj)
 
 
         // implementing search view
@@ -71,6 +67,7 @@ class Home_Fragment : Fragment() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
+
             override fun onQueryTextChange(newText: String?): Boolean {
                 filterList(newText)
                 return true
@@ -86,13 +83,9 @@ class Home_Fragment : Fragment() {
         }
 
 
-
-
-
         // Inflate the layout for this fragment
         return binding.root
     }
-
 
 
     // filtering data based on search query
@@ -119,8 +112,7 @@ class Home_Fragment : Fragment() {
     }
 
 
-
-    private fun animateNumberChange( endValue: Int,msg:String,textView: TextView) {
+    private fun animateNumberChange(endValue: Int, msg: String, textView: TextView) {
         val animator = ValueAnimator.ofInt(0, endValue)
         animator.duration = 2000
         animator.addUpdateListener { animation ->
