@@ -4,6 +4,7 @@ import com.jihan.shohid.room.Shohid
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
 import com.jihan.shohid.R
 import com.jihan.shohid.databinding.ActivityDetailBinding
 
@@ -18,6 +19,13 @@ class DetailActivity : AppCompatActivity() {
 
 
         if (shohid != null) {
+
+            if (shohid.img=="null"){
+                binding.imageView.setImageResource(R.drawable.placeholder)
+            }else{
+                Glide.with(this).load(shohid.img).placeholder(R.drawable.placeholder).into(binding.imageView)
+            }
+
             if (shohid.age == "null") {
                 binding.age.text = "বয়স : ----------"
             } else {

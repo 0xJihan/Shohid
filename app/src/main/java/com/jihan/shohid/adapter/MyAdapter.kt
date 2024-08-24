@@ -4,9 +4,11 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.jihan.shohid.R
 import com.jihan.shohid.activity.DetailActivity
 import com.jihan.shohid.room.Shohid
@@ -21,6 +23,7 @@ class MyAdapter(private var shohidList: List<Shohid>) :
         val tvDesc: TextView = itemview.findViewById(R.id.tvDesc)
         val tvDeathTime: TextView = itemview.findViewById(R.id.tvDeathTime)
         val tvId: TextView = itemview.findViewById(R.id.tvId)
+        val shohidImage: ImageView = itemview.findViewById(R.id.shohidImage)
 
         fun bindData(shohid: Shohid) {
             tvId.text = shohid.id.toString()
@@ -32,6 +35,14 @@ class MyAdapter(private var shohidList: List<Shohid>) :
                 intent.putExtra("extra", shohid)
                 startActivity(itemView.context, intent, null)
             }
+
+            if (shohid.img=="null"){
+                shohidImage.setImageResource(R.drawable.placeholder)
+            }else{
+                Glide.with(itemView.context).load(shohid.img).placeholder(R.drawable.placeholder).into(shohidImage)
+            }
+
+
         }
 
 

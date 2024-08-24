@@ -7,6 +7,7 @@ import java.io.Serializable
 @Entity(tableName = "martyr_information")
 data class Shohid(
     @PrimaryKey(autoGenerate = false) val id: Int,
+    val img:String,
     val age: String,
     val birth_place: String,
     val date_of_death: String,

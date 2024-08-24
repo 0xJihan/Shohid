@@ -32,7 +32,7 @@ class ShohidRepository(
 
             database.getDao().insertSohid(result.body()!!.shohidList)
         }
-            Log.d("jihan khan","Internet Conenected. Retrofit")
+            Log.d("jihan khan","Internet Conenected. \n${result.body()!!.shohidList}")
 
         }
 
