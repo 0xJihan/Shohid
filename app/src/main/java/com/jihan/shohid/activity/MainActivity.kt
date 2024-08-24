@@ -1,7 +1,9 @@
 package com.jihan.shohid.activity
 
 import NetworkUtils
+import android.animation.ValueAnimator
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -52,6 +54,17 @@ class MainActivity : AppCompatActivity() {
             binding.recyclerView.adapter = adapter
             binding.swipeRefreshLayout.isRefreshing = false
         }
+
+
+
+
+        // number changing animation
+        animateNumberChange(650,"এ পর্যন্ত শহীদ",binding.tvTotalShohid)
+        animateNumberChange(33000,"এ পর্যন্ত আহত",binding.tvTotalAhoto)
+        animateNumberChange(11000,"গ্রেফতার ও নিখোঁজ",binding.tvTotalNikhoj)
+
+
+
 
 
         // implementing search view
@@ -105,5 +118,15 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    private fun animateNumberChange( endValue: Int,msg:String,textView:TextView) {
+        val animator = ValueAnimator.ofInt(0, endValue)
+        animator.duration = 2000
+        animator.addUpdateListener { animation ->
+            val animatedValue = animation.animatedValue as Int
+            textView.text = "$msg\n$animatedValue+"
+        }
+        animator.start()
+    }
 
 }
