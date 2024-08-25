@@ -41,18 +41,10 @@ class Home_Fragment : Fragment() {
             ViewModelProvider(this, ViewModelFactory(repository))[ShohidViewModel::class.java]
 
 
-        // refresh ui
-        binding.swipeRefreshLayout.setOnRefreshListener {
-
-            viewModel.refreshData()
-            binding.swipeRefreshLayout.isRefreshing = true
-        }
-
         //observing data
         viewModel.shoidList.observe(viewLifecycleOwner) {
             adapter = MyAdapter(viewModel.shoidList.value!!)
             binding.recyclerView.adapter = adapter
-            binding.swipeRefreshLayout.isRefreshing = false
         }
 
 
