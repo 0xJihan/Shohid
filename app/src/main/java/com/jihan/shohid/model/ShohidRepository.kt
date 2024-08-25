@@ -20,6 +20,11 @@ class ShohidRepository(
         get() = _shohidList
 
 
+    private val _randomShohid = MutableLiveData<Shohid>()
+    val randomShohid: LiveData<Shohid>
+        get() = _randomShohid
+
+
     suspend fun getShohidList() {
 
         if (NetworkUtils().isInternetConnected(context)){
@@ -44,5 +49,15 @@ class ShohidRepository(
             Log.d("jihan khan","No Internet. Room")
         }
 
+
+        val random = database.getDao().getRandomShohid()
+        _randomShohid.postValue(random)
+
     }
+
+     fun refreshShohid() {
+        _randomShohid.postValue(database.getDao().getRandomShohid())
+    }
+
+
 }
