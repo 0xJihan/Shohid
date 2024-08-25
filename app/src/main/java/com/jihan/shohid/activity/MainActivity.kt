@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.jihan.shohid.adapter.ViewPagerAdapter
 import com.jihan.shohid.databinding.ActivityMainBinding
-import com.jihan.shohid.fragment.BlankFragment
+import com.jihan.shohid.fragment.RandomShohid
 import com.jihan.shohid.fragment.Home_Fragment
 
 class MainActivity : AppCompatActivity() {
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     // loading fragments
     private fun loadFragments() {
         adapter.addFragment(Home_Fragment())
-        adapter.addFragment(BlankFragment())
+        adapter.addFragment(RandomShohid())
     }
 
 

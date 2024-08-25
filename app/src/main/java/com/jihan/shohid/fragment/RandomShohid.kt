@@ -10,19 +10,19 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.jihan.shohid.MyApplication
 import com.jihan.shohid.R
-import com.jihan.shohid.databinding.FragmentBlankBinding
+import com.jihan.shohid.databinding.FragmentRandomBinding
 import com.jihan.shohid.model.ShohidViewModel
 import com.jihan.shohid.model.ViewModelFactory
 import com.jihan.shohid.room.Shohid
 
 
-class BlankFragment : Fragment() {
+class RandomShohid : Fragment() {
 
-    private lateinit var binding: FragmentBlankBinding
+    private lateinit var binding: FragmentRandomBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        binding = FragmentBlankBinding.inflate(layoutInflater)
+        binding = FragmentRandomBinding.inflate(layoutInflater)
 
 
         val repository = (activity?.application as MyApplication).repository
