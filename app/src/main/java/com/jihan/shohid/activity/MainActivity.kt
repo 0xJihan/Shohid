@@ -44,8 +44,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomBar.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-               R.id.item2 -> binding.viewPager2.currentItem = 0
-                R.id.item3 -> binding.viewPager2.currentItem = 1
+               R.id.itemHome -> binding.viewPager2.currentItem = 0
+                R.id.itemProfile -> binding.viewPager2.currentItem = 1
+                R.id.itemSetting -> binding.viewPager2.currentItem = 2
             }
             true
         }
@@ -54,8 +55,9 @@ class MainActivity : AppCompatActivity() {
         binding.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 when (position) {
-                    0 -> binding.bottomBar.selectedItemId = R.id.item2
-                    1 -> binding.bottomBar.selectedItemId = R.id.item3
+                    0 -> binding.bottomBar.selectedItemId = R.id.itemHome
+                    1 -> binding.bottomBar.selectedItemId = R.id.itemProfile
+                    2 -> binding.bottomBar.selectedItemId = R.id.itemSetting
                 }
             }
         })
