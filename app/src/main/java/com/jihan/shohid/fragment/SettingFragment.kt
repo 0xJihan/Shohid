@@ -23,6 +23,9 @@ class SettingFragment : Fragment() {
             val editor = activity?.getSharedPreferences("MyPrefs", MODE_PRIVATE)?.edit()
             editor?.putBoolean("isEnglish",true)
             editor?.apply()
+            (activity as MainActivity).finish()
+            val intent = Intent(activity, MainActivity::class.java)
+            startActivity(intent)
 
         }
 
@@ -30,6 +33,9 @@ class SettingFragment : Fragment() {
             val editor = activity?.getSharedPreferences("MyPrefs", MODE_PRIVATE)?.edit()
             editor?.putBoolean("isEnglish",false)
             editor?.apply()
+            (activity as MainActivity).finish()
+            val intent = Intent(activity, MainActivity::class.java)
+            startActivity(intent)
         }
 
 
