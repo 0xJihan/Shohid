@@ -20,7 +20,21 @@ class SettingFragment : Fragment() {
         binding = FragmentSettingBinding.inflate(inflater)
 
 
-        binding.button.setOnClickListener{
+
+        val isEnglish = activity?.getSharedPreferences("MyPrefs", MODE_PRIVATE)?.getBoolean("isEnglish",false)
+
+        if (isEnglish!!){
+            binding.tikBangla.visibility = View.GONE
+        }
+        else{
+            binding.tikEnglish.visibility = View.GONE
+        }
+
+
+
+
+
+        binding.btEnglish.setOnClickListener{
             val editor = activity?.getSharedPreferences("MyPrefs", MODE_PRIVATE)?.edit()
             editor?.putBoolean("isEnglish",true)
             editor?.apply()
@@ -32,7 +46,7 @@ class SettingFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.button2.setOnClickListener{
+        binding.btBangla.setOnClickListener{
             val editor = activity?.getSharedPreferences("MyPrefs", MODE_PRIVATE)?.edit()
             editor?.putBoolean("isEnglish",false)
             editor?.apply()

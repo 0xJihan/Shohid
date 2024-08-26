@@ -51,6 +51,7 @@
                     android:backgroundTint="#FDE3E3"
                    >
                     <TextView
+                        android:id="@+id/tvMartyr"
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -88,6 +89,7 @@
 
 
                     <TextView
+                        android:id="@+id/tvInjured"
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -128,6 +130,7 @@
 
 
                     <TextView
+                        android:id="@+id/tvArrested"
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

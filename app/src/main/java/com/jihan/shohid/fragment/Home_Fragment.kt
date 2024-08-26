@@ -8,15 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.jihan.shohid.MyApplication
+import com.jihan.shohid.R
 import com.jihan.shohid.adapter.MyAdapter
 import com.jihan.shohid.databinding.FragmentHomeBinding
 import com.jihan.shohid.model.ShohidViewModel
 import com.jihan.shohid.model.ViewModelFactory
 import com.jihan.shohid.room.Shohid
+
 
 
 class Home_Fragment : Fragment() {
@@ -27,9 +30,9 @@ class Home_Fragment : Fragment() {
 
     private lateinit var adapter: MyAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         _binding = FragmentHomeBinding.inflate(layoutInflater)
 
@@ -40,6 +43,23 @@ class Home_Fragment : Fragment() {
         viewModel =
             ViewModelProvider(this, ViewModelFactory(repository))[ShohidViewModel::class.java]
 
+    }
+
+
+
+
+    // ======================================= onCreateView ======================================================
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+
+        val isEnglish = activity?.getSharedPreferences("MyPrefs", MODE_PRIVATE)?.getBoolean("isEnglish",false)
+
+        if (!isEnglish!!){
+            binding.tvMartyr.text = "এ পর্যন্ত শহীদ"
+            binding.tvInjured.text = "এ পর্যন্ত আহত"
+            binding.tvArrested.text = "গ্রেফতার ও নিখোঁজ"
+        }
 
         //observing data
         viewModel.shoidList.observe(viewLifecycleOwner) {
