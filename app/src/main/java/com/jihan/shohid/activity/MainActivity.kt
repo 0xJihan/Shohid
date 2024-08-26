@@ -1,6 +1,7 @@
 package com.jihan.shohid.activity
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
@@ -9,6 +10,7 @@ import com.jihan.shohid.adapter.ViewPagerAdapter
 import com.jihan.shohid.databinding.ActivityMainBinding
 import com.jihan.shohid.fragment.Home_Fragment
 import com.jihan.shohid.fragment.RandomShohid
+import com.jihan.shohid.fragment.SettingFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -55,7 +57,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-
+        val text = getSharedPreferences("MyPrefs", MODE_PRIVATE).getBoolean("isEnglish",false)
+        Toast.makeText(this, "$text", Toast.LENGTH_SHORT).show()
 
 
     }
@@ -64,6 +67,7 @@ class MainActivity : AppCompatActivity() {
     private fun loadFragments() {
         adapter.addFragment(Home_Fragment())
         adapter.addFragment(RandomShohid())
+        adapter.addFragment(SettingFragment())
     }
 
 

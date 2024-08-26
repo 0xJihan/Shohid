@@ -25,22 +25,53 @@ class MyAdapter(private var shohidList: List<Shohid>) :
         val tvId: TextView = itemview.findViewById(R.id.tvId)
         val shohidImage: ImageView = itemview.findViewById(R.id.shohidImage)
 
-        fun bindData(shohid: Shohid) {
-            tvId.text = shohid.id.toString()
-            tvName.text = shohid.name
-            tvDesc.text = "${shohid.occupation}\n${shohid.description}"
-            tvDeathTime.text = shohid.date_of_death
-            itemView.rootView.setOnClickListener {
-                val intent = Intent(itemView.context, DetailActivity::class.java)
-                intent.putExtra("extra", shohid)
-                startActivity(itemView.context, intent, null)
+
+        // bind data
+        fun bindData(shohid: Shohid,isEnglish:Boolean) {
+
+
+            // for English Language
+            if (isEnglish){
+                tvId.text = shohid.id.toString()
+                tvName.text = shohid.en_name
+                tvDesc.text = "${shohid.en_occupation}\n${shohid.en_description}"
+                tvDeathTime.text = shohid.en_date_of_death
+                itemView.rootView.setOnClickListener {
+                    val intent = Intent(itemView.context, DetailActivity::class.java)
+                    intent.putExtra("extra", shohid)
+                    startActivity(itemView.context, intent, null)
+                }
+
+                if (shohid.img=="null"){
+                    shohidImage.setImageResource(R.drawable.placeholder)
+                }else{
+                    Glide.with(itemView.context).load(shohid.img).placeholder(R.drawable.placeholder).into(shohidImage)
+                }
+
             }
 
-            if (shohid.img=="null"){
-                shohidImage.setImageResource(R.drawable.placeholder)
-            }else{
-                Glide.with(itemView.context).load(shohid.img).placeholder(R.drawable.placeholder).into(shohidImage)
+
+            // for Bangla language
+            else {
+                tvId.text = shohid.id.toString()
+                tvName.text = shohid.name
+                tvDesc.text = "${shohid.occupation}\n${shohid.description}"
+                tvDeathTime.text = shohid.date_of_death
+                itemView.rootView.setOnClickListener {
+                    val intent = Intent(itemView.context, DetailActivity::class.java)
+                    intent.putExtra("extra", shohid)
+                    startActivity(itemView.context, intent, null)
+                }
+
+                if (shohid.img=="null"){
+                    shohidImage.setImageResource(R.drawable.placeholder)
+                }else{
+                    Glide.with(itemView.context).load(shohid.img).placeholder(R.drawable.placeholder).into(shohidImage)
+                }
+
             }
+
+
 
 
         }
@@ -63,8 +94,9 @@ class MyAdapter(private var shohidList: List<Shohid>) :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val isEnglish = holder.itemView.context.getSharedPreferences("MyPrefs",0).getBoolean("isEnglish",false)
 
-        holder.bindData(shohidList[position])
+        holder.bindData(shohidList[position],isEnglish)
 
     }
 
