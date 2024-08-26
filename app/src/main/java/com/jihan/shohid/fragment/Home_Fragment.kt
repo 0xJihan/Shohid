@@ -49,9 +49,9 @@ class Home_Fragment : Fragment() {
 
 
         // number changing animation
-        animateNumberChange(650, "এ পর্যন্ত শহীদ", binding.tvTotalShohid)
-        animateNumberChange(33000, "এ পর্যন্ত আহত", binding.tvTotalAhoto)
-        animateNumberChange(11000, "গ্রেফতার ও নিখোঁজ", binding.tvTotalNikhoj)
+        animateNumberChange(650, binding.tvTotalShohid)
+        animateNumberChange(33000, binding.tvTotalAhoto)
+        animateNumberChange(11000, binding.tvTotalNikhoj)
 
 
         // implementing search view
@@ -67,14 +67,11 @@ class Home_Fragment : Fragment() {
         })
 
 
-
-
         // swipe refresh
         binding.swipeRefreshLayout.setOnRefreshListener {
             viewModel.refreshData()
             binding.swipeRefreshLayout.isRefreshing = false
         }
-
 
 
         // showing toast based on network connection
@@ -114,12 +111,12 @@ class Home_Fragment : Fragment() {
     }
 
 
-    private fun animateNumberChange(endValue: Int, msg: String, textView: TextView) {
+    private fun animateNumberChange(endValue: Int, textView: TextView) {
         val animator = ValueAnimator.ofInt(0, endValue)
         animator.duration = 2000
         animator.addUpdateListener { animation ->
             val animatedValue = animation.animatedValue as Int
-            textView.text = "$msg\n$animatedValue+"
+            textView.text = "$animatedValue +"
         }
         animator.start()
     }

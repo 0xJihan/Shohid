@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Shohid</string>
-    <string name="choose_your_langugae">Apnar vasha select korun</string>
+    <string name="select_your_language">আপনার অ্যাপের ভাষা নির্বাচন করুন</string>
+    <string name="n">এ পর্যন্ত শহীদ</string>
+    <string name="injured">এ পর্যন্ত আহত</string>
+    <string name="arrested">গ্রেফতার ও নিখোঁজ</string>
 </resources>

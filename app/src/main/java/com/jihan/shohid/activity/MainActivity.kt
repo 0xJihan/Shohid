@@ -11,6 +11,7 @@ import com.jihan.shohid.databinding.ActivityMainBinding
 import com.jihan.shohid.fragment.Home_Fragment
 import com.jihan.shohid.fragment.RandomShohid
 import com.jihan.shohid.fragment.SettingFragment
+import com.jihan.shohid.utils.LanguageUtils
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+        LanguageUtils(this).loadLocale()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

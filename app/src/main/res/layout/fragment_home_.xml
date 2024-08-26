@@ -24,6 +24,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/main"
+            android:padding="@dimen/_5sdp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".activity.MainActivity">
@@ -39,57 +40,123 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/searchView">
 
-                <TextView
-                    android:id="@+id/tvTotalShohid"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="@dimen/_2sdp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_margin="@dimen/_2sdp"
                     android:layout_weight="1"
                     android:background="@drawable/bg_corner"
                     android:backgroundTint="#FDE3E3"
-                    android:fontFamily="@font/anik_semi_bold"
-                    android:padding="@dimen/_2sdp"
-                    android:text="এ পর্যন্ত শহীদ\n৬৫০+"
-                    android:textAlignment="center"
-                    android:textColor="#B12424"
-                    android:textSize="17sp" />
+                   >
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/anik_semi_bold"
+                        android:text="@string/n"
+                        android:textAlignment="center"
+                        android:textColor="#B12424"
+                        />
 
-                <TextView
-                    android:id="@+id/tvTotalAhoto"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/tvTotalShohid"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/anik_semi_bold"
+                        android:text="6666"
+                        android:textAlignment="center"
+                        android:textColor="#B12424"
+                        android:textSize="17sp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_5sdp"
+                    android:orientation="vertical"
+                    android:backgroundTint="#FEF3C7"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:padding="@dimen/_2sdp"
+
                     android:layout_weight="1"
                     android:background="@drawable/bg_corner"
-                    android:backgroundTint="#FEF3C7"
-                    android:fontFamily="@font/anik_semi_bold"
-                    android:padding="@dimen/_2sdp"
-                    android:text="এ পর্যন্ত আহত\n৩৩,০০০+"
-                    android:textAlignment="center"
-                    android:textColor="#D97506"
-                    android:textSize="17sp" />
+                   >
 
-                <TextView
-                    android:id="@+id/tvTotalNikhoj"
-                    android:layout_width="wrap_content"
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/anik_semi_bold"
+                        android:text="@string/injured"
+                        android:textAlignment="center"
+                        android:textColor="#D97506"
+
+                        />
+
+
+                    <TextView
+                        android:id="@+id/tvTotalAhoto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/anik_semi_bold"
+                        android:text="99999"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#D97506"
+                        android:textSize="17sp"
+                        />
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_margin="@dimen/_2sdp"
                     android:layout_weight="1"
                     android:background="@drawable/bg_corner"
                     android:backgroundTint="#E7E7E7"
-                    android:fontFamily="@font/anik_semi_bold"
-                    android:padding="@dimen/_2sdp"
-                    android:text="গ্রেফতার ও নিখোঁজ\n১১,০০০+"
-                    android:textAlignment="center"
-                    android:textColor="#515151"
-                    android:textSize="17sp" />
+                    android:orientation="vertical"
+                    >
+
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/anik_semi_bold"
+                        android:padding="@dimen/_2sdp"
+                        android:text="@string/arrested"
+                        android:textAlignment="center"
+                        android:textColor="#515151" />
+                    <TextView
+                        android:id="@+id/tvTotalNikhoj"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/anik_semi_bold"
+                        android:padding="@dimen/_2sdp"
+                      android:text="9999"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#515151"
+                        android:textSize="17sp"/>
+
+
+                </LinearLayout>
             </LinearLayout>
 
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/searchView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
