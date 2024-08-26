@@ -67,6 +67,16 @@ class Home_Fragment : Fragment() {
         })
 
 
+
+
+        // swipe refresh
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.refreshData()
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
+
+
+
         // showing toast based on network connection
         if (NetworkUtils().isInternetConnected(requireContext())) {
             Toast.makeText(context, "Internet Connected", Toast.LENGTH_LONG).show()

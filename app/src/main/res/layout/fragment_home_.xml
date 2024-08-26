@@ -9,10 +9,15 @@
 
 
 
-<ScrollView
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
 
@@ -93,7 +98,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -102,8 +107,8 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 </LinearLayout>
