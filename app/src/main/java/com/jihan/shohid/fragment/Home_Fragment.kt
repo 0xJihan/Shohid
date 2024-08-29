@@ -1,84 +1,54 @@
 package com.jihan.shohid.fragment
 
 import NetworkUtils
-import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.models.SlideModel
 import com.jihan.shohid.MyApplication
 import com.jihan.shohid.R
 import com.jihan.shohid.adapter.MyAdapter
 import com.jihan.shohid.databinding.FragmentHomeBinding
 import com.jihan.shohid.model.ShohidViewModel
 import com.jihan.shohid.model.ViewModelFactory
-import com.jihan.shohid.room.Shohid
-
-
 
 class Home_Fragment : Fragment() {
     private lateinit var _binding: FragmentHomeBinding
     private val binding get() = _binding
 
     private lateinit var viewModel: ShohidViewModel
-
     private lateinit var adapter: MyAdapter
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        _binding = FragmentHomeBinding.inflate(layoutInflater)
-
-
         val repository = (activity?.application as MyApplication).repository
-
-        //viewModel
-        viewModel =
-            ViewModelProvider(this, ViewModelFactory(repository))[ShohidViewModel::class.java]
-
+        viewModel = ViewModelProvider(this, ViewModelFactory(repository))[ShohidViewModel::class.java]
     }
 
-
-
-
-    // ======================================= onCreateView ======================================================
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        val isEnglish = activity?.getSharedPreferences("MyPrefs", MODE_PRIVATE)?.getBoolean("isEnglish",false)
+        // Initialize adapter
+        adapter = MyAdapter()
+        binding.recyclerView.adapter = adapter
 
-        if (!isEnglish!!){
-            binding.tvMartyr.text = "এ পর্যন্ত শহীদ"
-            binding.tvInjured.text = "এ পর্যন্ত আহত"
-            binding.tvArrested.text = "গ্রেফতার ও নিখোঁজ"
+        // Observe LiveData
+        viewModel.shoidList.observe(viewLifecycleOwner) { list ->
+            adapter.submitList(list)
         }
 
-        //observing data
-        viewModel.shoidList.observe(viewLifecycleOwner) {
-            adapter = MyAdapter(viewModel.shoidList.value!!)
-            binding.recyclerView.adapter = adapter
-        }
-
-
-        // number changing animation
-        animateNumberChange(650, binding.tvTotalShohid)
-        animateNumberChange(33000, binding.tvTotalAhoto)
-        animateNumberChange(11000, binding.tvTotalNikhoj)
-
-
-        // implementing search view
+        // Set up SearchView
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
+            override fun onQueryTextSubmit(query: String?): Boolean = false
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 filterList(newText)
@@ -86,59 +56,43 @@ class Home_Fragment : Fragment() {
             }
         })
 
+        // Load Image Slider
+        loadImageSlider()
 
-        // swipe refresh
-        binding.swipeRefreshLayout.setOnRefreshListener {
-            viewModel.refreshData()
-            binding.swipeRefreshLayout.isRefreshing = false
-        }
-
-
-        // showing toast based on network connection
-        if (NetworkUtils().isInternetConnected(requireContext())) {
-            Toast.makeText(context, "Internet Connected", Toast.LENGTH_LONG).show()
+        // Check network connection
+        val message = if (NetworkUtils().isInternetConnected(requireContext())) {
+            "Internet Connected"
         } else {
-            Toast.makeText(context, "Internet Not Connected", Toast.LENGTH_LONG).show()
+            "Internet Not Connected"
         }
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
 
-
-        // Inflate the layout for this fragment
         return binding.root
     }
 
-
-    // filtering data based on search query
-    private fun filterList(newText: String?) {
-        var list = ArrayList<Shohid>()
-        val shohidList = viewModel.shoidList.value!!
-        val query = newText!!.lowercase()
-        if (list != null) {
-            for (item in shohidList) {
-                if (item.name.lowercase().contains(query) || item.en_name.lowercase()
-                        .contains(query) || item.description.lowercase()
-                        .contains(query) || item.en_description.lowercase()
-                        .contains(query) || item.birth_place.lowercase()
-                        .contains(query) || item.en_birth_place.lowercase()
-                        .contains(query) || item.date_of_death.contains(query) || item.en_date_of_death.contains(
-                        query
-                    )
-                ) {
-                    list.add(item)
-                }
-            }
-        }
-        adapter.updateList(list)
+    private fun loadImageSlider() {
+        val imageList = listOf(
+            SlideModel("https://ecdn.dhakatribune.net/contents/cache/images/640x359x1/uploads/media/2024/07/26/Saeed-2c71ff420cb36f119ce1a6fb859ab92e.JPG", "Abu Sayed Quota Movement Bangladesh 2024"),
+            SlideModel("https://thediplomat.com/wp-content/uploads/2024/07/sizes/medium/thediplomat_2024-07-19-171437.jpg", "Students clash with riot police during a protest against a quota system for government jobs, in Dhaka, Bangladesh, July 18, 2024."),
+            SlideModel("https://ecdn.dhakatribune.net/contents/cache/images/640x359x1/uploads/media/2024/07/06/Protest-e33e908323685701b4b479714cc12069.jpg", "The image shows students and job seekers protesting for cancelling the quota system in government jobs in Dhaka on Saturday, July 6, 2024."),
+            SlideModel("https://www.thedailystar.net/sites/default/files/images/2024/08/05/quota-protest5.jpg", "Long March TO Dhaka"),
+            SlideModel("https://images.prothomalo.com/prothomalo-english%2F2024-08-06%2Fb1u6cz56%2Fprothomalo-bangla_2024-08_4552dc11-75f7-4590-81ef-08237f41beb9_P1-1100940.jpg", "05 August , The day of Victory")
+        )
+        binding.imageSlider.setImageList(imageList, ScaleTypes.CENTER_CROP)
     }
 
-
-    private fun animateNumberChange(endValue: Int, textView: TextView) {
-        val animator = ValueAnimator.ofInt(0, endValue)
-        animator.duration = 2000
-        animator.addUpdateListener { animation ->
-            val animatedValue = animation.animatedValue as Int
-            textView.text = "$animatedValue +"
+    private fun filterList(query: String?) {
+        val list = viewModel.shoidList.value?.filter { shohid ->
+            val lowerCaseQuery = query?.lowercase().orEmpty()
+            shohid.name.lowercase().contains(lowerCaseQuery) ||
+                    shohid.en_name.lowercase().contains(lowerCaseQuery) ||
+                    shohid.description.lowercase().contains(lowerCaseQuery) ||
+                    shohid.en_description.lowercase().contains(lowerCaseQuery) ||
+                    shohid.birth_place.lowercase().contains(lowerCaseQuery) ||
+                    shohid.en_birth_place.lowercase().contains(lowerCaseQuery) ||
+                    shohid.date_of_death.contains(lowerCaseQuery) ||
+                    shohid.en_date_of_death.contains(lowerCaseQuery)
         }
-        animator.start()
+        adapter.submitList(list)
     }
-
 }

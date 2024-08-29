@@ -33,15 +33,6 @@ class MainActivity : AppCompatActivity() {
         binding.viewPager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
 
-        // Optionally, sync ViewPager2 to BottomNavigationView when user swipes
-        binding.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                when (position) {
-
-                }
-            }
-        })
-
         binding.bottomBar.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                R.id.itemHome -> binding.viewPager2.currentItem = 0
