@@ -1,6 +1,7 @@
 package com.jihan.shohid.fragment
 
 import NetworkUtils
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.jihan.shohid.MyApplication
 import com.jihan.shohid.R
 import com.jihan.shohid.adapter.MyAdapter
@@ -26,17 +28,28 @@ class Home_Fragment : Fragment() {
     private lateinit var viewModel: ShohidViewModel
     private lateinit var adapter: MyAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val repository = (activity?.application as MyApplication).repository
-        viewModel =
-            ViewModelProvider(this, ViewModelFactory(repository))[ShohidViewModel::class.java]
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        if (!NetworkUtils().isInternetConnected(requireContext())) {
+            val dialog = MaterialAlertDialogBuilder(requireContext())
+            dialog.setTitle("No Internet!")
+            dialog.setMessage("Please Turn On Internet Connection for Latest Information and Images")
+            dialog.setPositiveButton("Okay") { d, w ->
+                d.cancel()
+            }
+            dialog.setIcon(R.drawable.baseline_signal_wifi_statusbar_connected_no_internet_4_24)
+            dialog.create()
+            dialog.show()
+        }
+
+
+        val repository = (activity?.application as MyApplication).repository
+        viewModel =
+            ViewModelProvider(this, ViewModelFactory(repository))[ShohidViewModel::class.java]
 
         // Initialize adapter
         adapter = MyAdapter()
@@ -47,26 +60,10 @@ class Home_Fragment : Fragment() {
             adapter.submitList(list)
         }
 
-        // Set up SearchView
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean = false
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                filterList(newText)
-                return true
-            }
-        })
 
         // Load Image Slider
         loadImageSlider()
 
-        // Check network connection
-        val message = if (NetworkUtils().isInternetConnected(requireContext())) {
-            "Internet Connected"
-        } else {
-            "Internet Not Connected"
-        }
-        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
 
         return binding.root
     }
@@ -97,18 +94,5 @@ class Home_Fragment : Fragment() {
         binding.imageSlider.setImageList(imageList, ScaleTypes.CENTER_CROP)
     }
 
-    private fun filterList(query: String?) {
-        val list = viewModel.shoidList.value?.filter { shohid ->
-            val lowerCaseQuery = query?.lowercase().orEmpty()
-            shohid.name.lowercase().contains(lowerCaseQuery) ||
-                    shohid.en_name.lowercase().contains(lowerCaseQuery) ||
-                    shohid.description.lowercase().contains(lowerCaseQuery) ||
-                    shohid.en_description.lowercase().contains(lowerCaseQuery) ||
-                    shohid.birth_place.lowercase().contains(lowerCaseQuery) ||
-                    shohid.en_birth_place.lowercase().contains(lowerCaseQuery) ||
-                    shohid.date_of_death.contains(lowerCaseQuery) ||
-                    shohid.en_date_of_death.contains(lowerCaseQuery)
-        }
-        adapter.submitList(list)
-    }
+
 }

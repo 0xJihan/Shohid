@@ -7,6 +7,7 @@
 
     <item
         android:id="@+id/itemHome"
+        
         android:title="Home"
         android:icon="@drawable/baseline_home_24"/>
 
@@ -19,5 +20,11 @@
         android:id="@+id/itemSetting"
         android:icon="@drawable/baseline_settings_24"
         android:title="Settings" />
+    <item
+        android:id="@+id/itemSeerch"
+        android:icon="@drawable/round_search_24"
+        android:title="Search" />
+
+
 
 </menu>

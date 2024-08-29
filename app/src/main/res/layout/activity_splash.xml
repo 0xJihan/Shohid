@@ -12,14 +12,15 @@
         android:id="@+id/lottie"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_100sdp"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:rotation="45"
         android:rotationY="6"
         app:layout_constraintBottom_toBottomOf="@+id/mLottie"
         app:layout_constraintEnd_toStartOf="@+id/mLottie"
         app:layout_constraintTop_toTopOf="@+id/mLottie"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
         app:lottie_rawRes="@raw/gun_firing" />
 
     <com.airbnb.lottie.LottieAnimationView
@@ -38,8 +39,9 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="32dp"
         android:text="শহীদের স্মরণে"
+        android:fontFamily="@font/anik_bold"
         android:textColor="#FF0000"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"

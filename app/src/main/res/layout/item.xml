@@ -67,15 +67,14 @@
 
         <TextView
             android:id="@+id/tvId"
-            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="4.9dp"
             android:background="#FF0000"
             android:padding="@dimen/_2sdp"
             android:text="455"
             android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

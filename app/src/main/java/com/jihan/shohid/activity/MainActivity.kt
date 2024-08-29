@@ -1,5 +1,6 @@
 package com.jihan.shohid.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -19,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: ViewPagerAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
-        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         LanguageUtils(this).loadLocale()
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -35,9 +35,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomBar.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-               R.id.itemHome -> binding.viewPager2.currentItem = 0
+                R.id.itemHome -> binding.viewPager2.currentItem = 0
                 R.id.itemProfile -> binding.viewPager2.currentItem = 1
                 R.id.itemSetting -> binding.viewPager2.currentItem = 2
+                R.id.itemSeerch -> startActivity(Intent(this, SearchActivity::class.java))
             }
             true
         }
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-        val text = getSharedPreferences("MyPrefs", MODE_PRIVATE).getBoolean("isEnglish",false)
+        val text = getSharedPreferences("MyPrefs", MODE_PRIVATE).getBoolean("isEnglish", false)
         Toast.makeText(this, "$text", Toast.LENGTH_SHORT).show()
 
 

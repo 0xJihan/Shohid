@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".fragment.Home_Fragment">
 
@@ -13,18 +14,13 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:background="@color/white"
             android:id="@+id/main"
             android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/_5sdp">
-
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                app:queryHint="Search Here..." />
 
             <com.denzcoskun.imageslider.ImageSlider
                 android:id="@+id/imageSlider"
@@ -32,8 +28,11 @@
                 android:layout_height="@dimen/_150sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 app:iss_auto_cycle="true"
-                app:iss_delay="2000"
-                app:iss_period="2000"
+                app:iss_selected_dot="@color/red"
+                app:iss_unselected_dot="@color/black"
+                app:iss_delay="3000"
+                app:iss_period="3000"
+
                 app:iss_text_align="CENTER"
                 app:iss_text_color="#00000000"
                 app:iss_title_background="@android:color/transparent" />
