@@ -1,6 +1,7 @@
 package com.jihan.shohid.activity
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.jihan.shohid.R
@@ -96,6 +97,10 @@ class DetailActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    fun finishActivity(view: View) {
+        finishAfterTransition()
     }
 
 }

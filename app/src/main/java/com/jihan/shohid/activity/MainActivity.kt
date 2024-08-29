@@ -53,8 +53,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-        val text = getSharedPreferences("MyPrefs", MODE_PRIVATE).getBoolean("isEnglish", false)
-        Toast.makeText(this, "$text", Toast.LENGTH_SHORT).show()
 
 
     }
