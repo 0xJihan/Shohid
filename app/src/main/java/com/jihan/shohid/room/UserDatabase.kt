@@ -21,7 +21,7 @@ abstract class UserDatabase : RoomDatabase() {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext, UserDatabase::class.java, "user_database"
-                    ).build()
+                    ).createFromAsset("user_database.db").build()
                 }
 
                 return INSTANCE!!
