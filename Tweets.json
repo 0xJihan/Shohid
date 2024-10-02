@@ -1,0 +1,315 @@
+[
+  {
+    "category": "programming",
+    "tweets": "Debugging is like being the detective in a crime movie where you're also the murderer."
+  },
+  {
+    "category": "programming",
+    "tweets": "In programming, there are no shortcuts. Just efficient workarounds."
+  },
+  {
+    "category": "programming",
+    "tweets": "Programming is 10% writing code and 90% figuring out why it doesn't work."
+  },
+  {
+    "category": "programming",
+    "tweets": "Code never lies, but it doesn't always tell the whole truth."
+  },
+  {
+    "category": "programming",
+    "tweets": "The best debugger is a fresh cup of coffee and a good night's sleep."
+  },
+  {
+    "category": "programming",
+    "tweets": "Writing code is like writing a book, but if you miss one comma, the whole plot crashes."
+  },
+  {
+    "category": "programming",
+    "tweets": "Good code is its own best documentation. Bad code is... a career."
+  },
+  {
+    "category": "programming",
+    "tweets": "Sometimes, the fastest way to fix a bug is to turn it into a feature."
+  },
+  {
+    "category": "programming",
+    "tweets": "Programming is the art of telling a computer what to do... and then praying it listens."
+  },
+  {
+    "category": "programming",
+    "tweets": "99 little bugs in the code, take one down, patch it around, 127 little bugs in the code."
+  },
+  {
+    "category": "android development",
+    "tweets": "Android development: where the emulator is faster than your phone, but just barely."
+  },
+  {
+    "category": "android development",
+    "tweets": "In Android dev, if it works on your device, it’s guaranteed to break on someone else’s."
+  },
+  {
+    "category": "android development",
+    "tweets": "Building an Android app is just a long journey to make it crash in creative new ways."
+  },
+  {
+    "category": "android development",
+    "tweets": "The first rule of Android development: Don't trust the emulator."
+  },
+  {
+    "category": "android development",
+    "tweets": "Developing for Android is like building a house on quicksand… that sometimes gets updated."
+  },
+  {
+    "category": "android development",
+    "tweets": "Android development: Because the only thing more fun than one XML layout is five."
+  },
+  {
+    "category": "android development",
+    "tweets": "Android dev: One device, thousands of screen sizes and resolutions. Good luck!"
+  },
+  {
+    "category": "android development",
+    "tweets": "If your Android app worked on the first try, you probably missed something."
+  },
+  {
+    "category": "android development",
+    "tweets": "Writing Android code: 10% features, 90% trying to understand Fragment lifecycle."
+  },
+  {
+    "category": "android development",
+    "tweets": "The hardest part of Android development? Explaining the difference between Context and Activity."
+  },
+
+  {
+    "category": "machine learning",
+    "tweets": "Machine learning: teaching computers to learn, so we don't have to. 🤖"
+  },
+  {
+    "category": "machine learning",
+    "tweets": "In machine learning, data is king, but good models are the crown. 👑"
+  },
+  {
+    "category": "machine learning",
+    "tweets": "Training models: where 99% accuracy feels like a failure. 📉"
+  },
+  {
+    "category": "machine learning",
+    "tweets": "Machine learning: turning data into insights, and mistakes into features. 🔄"
+  },
+  {
+    "category": "machine learning",
+    "tweets": "Your model is only as good as the data it learns from. Garbage in, garbage out! 🗑️"
+  },
+  {
+    "category": "machine learning",
+    "tweets": "Deep learning: because sometimes shallow just doesn’t cut it. 🌊"
+  },
+  {
+    "category": "machine learning",
+    "tweets": "In machine learning, overfitting is like wearing sunglasses at night. It’s cool, but useless. 😎"
+  },
+  {
+    "category": "machine learning",
+    "tweets": "The more data, the better the model. Unless your computer melts first. 💻🔥"
+  },
+  {
+    "category": "machine learning",
+    "tweets": "Machine learning: where the answer to ‘why?’ is often ‘just trust the math.’ 📊"
+  },
+  {
+    "category": "machine learning",
+    "tweets": "Building a machine learning model is like raising a pet: lots of feeding and a few tricks. 🐶"
+  },
+
+  {
+    "category": "coding facts",
+    "tweets": "The first computer virus, called 'Creeper', was created in 1971. 🦠"
+  },
+  {
+    "category": "coding facts",
+    "tweets": "There are over 700 programming languages in the world today. 🌍"
+  },
+  {
+    "category": "coding facts",
+    "tweets": "The first computer bug was an actual bug—a moth stuck in a computer in 1947. 🦋"
+  },
+  {
+    "category": "coding facts",
+    "tweets": "The term 'bug' in programming was coined by Grace Hopper, one of the first programmers. 👩‍💻"
+  },
+  {
+    "category": "coding facts",
+    "tweets": "Python is named after Monty Python, not the snake. 🐍"
+  },
+  {
+    "category": "coding facts",
+    "tweets": "COBOL, one of the oldest programming languages, is still used by banks today! 🏦"
+  },
+  {
+    "category": "coding facts",
+    "tweets": "The first high-level programming language was FORTRAN, developed in 1957. 🖥️"
+  },
+  {
+    "category": "coding facts",
+    "tweets": "Did you know? 'Hello, World!' is the first program most developers write. 🌍"
+  },
+  {
+    "category": "coding facts",
+    "tweets": "Coding can be traced back to the 1800s with Ada Lovelace, the world's first programmer. 🧠"
+  },
+  {
+    "category": "coding facts",
+    "tweets": "About 70% of coding time is spent debugging rather than writing new code. 🧑‍🔧"
+  },
+
+
+  {
+    "category": "motivation",
+    "tweets": "Success is not final, failure is not fatal: It is the courage to continue that counts. 💪"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. 🌟"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Don’t watch the clock; do what it does. Keep going. ⏳"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Hardships often prepare ordinary people for an extraordinary destiny. 🚀"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Success is not how high you have climbed, but how you make a positive difference to the world. 🌍"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Your limitation—it’s only your imagination. ✨"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Great things never come from comfort zones. Step out and start moving. 🚶‍♂️"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Dream it. Wish it. Do it. 💭"
+  },
+  {
+    "category": "motivation",
+    "tweets": "The harder you work for something, the greater you’ll feel when you achieve it. 🎯"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Don’t stop when you’re tired. Stop when you’re done. 🏁"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Wake up with determination. Go to bed with satisfaction. 🌅"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Push yourself, because no one else is going to do it for you. 🔥"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Success doesn’t just find you. You have to go out and get it. 🌟"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Sometimes we’re tested not to show our weaknesses, but to discover our strengths. 💪"
+  },
+  {
+    "category": "motivation",
+    "tweets": "The key to success is to focus on goals, not obstacles. 🎯"
+  },
+  {
+    "category": "motivation",
+    "tweets": "It always seems impossible until it’s done. 🌟"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Stay focused and never give up. Great things take time. 💫"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Don’t limit your challenges. Challenge your limits. 🚀"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Do something today that your future self will thank you for. ⏳"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Small progress is still progress. Keep moving forward. 🏃‍♂️"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Success is the sum of small efforts repeated day in and day out. 💡"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Your only limit is your mind. Break through it. 🧠"
+  },
+  {
+    "category": "motivation",
+    "tweets": "What you get by achieving your goals is not as important as what you become by achieving them. 🎯"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Strength doesn’t come from what you can do. It comes from overcoming the things you thought you couldn’t. 💪"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Start where you are. Use what you have. Do what you can. 🏁"
+  },
+  {
+    "category": "motivation",
+    "tweets": "The best way to predict the future is to create it. 🌟"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Dream big. Work hard. Stay focused and surround yourself with good people. 💪"
+  },
+  {
+    "category": "motivation",
+    "tweets": "You don’t have to be great to start, but you have to start to be great. 🚀"
+  },
+  {
+    "category": "motivation",
+    "tweets": "The road to success is always under construction. 🛠️"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Believe you can and you’re halfway there. 🏔️"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Difficult roads often lead to beautiful destinations. 🛤️"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Opportunities don’t happen, you create them. 🔑"
+  },
+  {
+    "category": "motivation",
+    "tweets": "Don't wait for the perfect moment. Take the moment and make it perfect. ⏳"
+  }
+
+
+]
+
+
+
+
+
+now category it like this
+
+{
+
+"android":[
+{
+"tweet":"tweet hereee....."
+},{}
+]
+
